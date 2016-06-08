@@ -2,6 +2,13 @@
 
 An example project/scaffold for React, using [Koa](http://koajs.com/) for serving, and [Bublé](https://buble.surge.sh/guide/) for ES6 to ES5 compilation. All wrapped up with Browserify and Docker.
 
+## Developing
+
+You _must_ set up the pre-commit hook before development:
+```
+$ ln -s -f ../../hooks/pre-commit .git/hooks/pre-commit
+```
+
 ## Building
 
 1. Clone the repository
