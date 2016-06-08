@@ -3,30 +3,13 @@
  */
 'use strict'
 
-// Base dependencies
-const polyfill = require('./polyfill')
-const skate = require('skatejs')
+const React = require('react')
+const render = require('react-dom').render
 
-// vdom-based rendering helpers
-const {render} = require('skatejs-dom-diff')
-const {div} = require('skatejs-dom-diff').vdom.element
+const Main = ({ name }) => {
+  return <div>
+    <h1>Hello, {name}!</h1>
+  </div>
+}
 
-// Setup our web component definitions
-skate('hello-world', {
-    properties: {
-        name: {
-            default: 'Josh',
-            set: skate.render,
-        }
-    },
-
-    created(ele) {
-        setTimeout(() => {
-            ele.name = 'Yay'
-        }, 2000)
-    },
-
-    render: render((ele) => {
-        return div(`Hello, ${ele.name}!`)
-    })
-})
+render(<Main name='Josh' />, document.getElementById('app'))
