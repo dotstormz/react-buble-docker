@@ -1,0 +1,10 @@
+{
+    "project": "react-buble",
+    "volume": "code:/app",
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "db": {
+        "type": "none"
+    }
+}
