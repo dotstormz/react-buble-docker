@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "browserify -d -g uglifyify client/app.js | exorcist build/app.js.map > build/app.js",
-    "watch": "watchify -d -g uglifyify -o 'exorcist build/app.js.map > build/app.js' client/app.js",
+    "watch": "watchify -d -o 'exorcist build/app.js.map > build/app.js' client/app.js",
     "dev": "nodemon -e js,html --ignore client/ src/index.js",
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,27 +16,27 @@
     "koa": "^1.2.0",
     "koa-mount": "^1.3.0",
     "koa-static": "^2.0.0",
+    "ramda": "^0.21.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
   },
   "devDependencies": {
-    "babel-eslint": "^6.0.4",
     "browserify": "^13.0.1",
-    "bubleify": "^0.3.0",
+    "bubleify": "^0.3.1",
     "eslint": "^2.11.1",
     "eslint-config-standard": "^5.3.1",
-    "eslint-plugin-promise": "^1.3.2",
+    "eslint-config-standard-jsx": "^1.2.1",
+    "eslint-config-standard-react": "^2.4.0",
     "eslint-plugin-react": "^5.1.1",
-    "eslint-plugin-standard": "^1.3.2",
     "exorcist": "^0.4.0",
     "nodemon": "^1.9.2",
-    "uglifyify": "^3.0.1",
+    "uglifyify": "git://github.com/garthenweb/uglifyify.git#AllowSourcemapUTF8Charset",
     "watchify": "^3.7.0"
   },
   "browserify": {
     "transform": [
-      "bubleify",
-      "uglifyify"
+      ["bubleify"],
+      ["uglifyify"]
     ]
   }
 }
